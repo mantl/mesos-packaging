@@ -3,7 +3,6 @@ name: mesos
 version: 0.23.0
 license: ASL 2.0
 iteration: 1
-epoch: 1
 vendor: Mesos
 architecture: x86_64
 url: http://mesos.apache.org/
@@ -64,7 +63,6 @@ scripts:
 
 extra-args: |
   --rpm-os linux
-  --rpm-dist CentOS
   --rpm-auto-add-exclude-directories /usr/share/java
   --rpm-auto-add-exclude-directories /usr/lib/python2.7
   --rpm-auto-add-exclude-directories /usr/lib/python2.7/site-packages
