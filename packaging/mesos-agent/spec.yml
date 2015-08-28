@@ -1,0 +1,42 @@
+---
+name: mesos-agent
+version: 0.23.0
+license: ASL 2.0
+iteration: 1
+epoch: 1
+vendor: Mesos
+url: http://mesos.apache.org/
+architecture: noarch
+description: configuration files for the mesos-agent
+
+depends:
+  - mesos
+
+targets:
+  - src: "{{.SpecRoot}}/mesos-agent.service"
+    dest: /etc/systemd/system/mesos-agent.service
+  - src: "{{.SpecRoot}}/mesos-agent.sysconfig"
+    dest: /etc/sysconfig/consul
+    config: true
+  - src: "{{.SpecRoot}}/mesos-firewall-rules.json"
+    dest: /etc/sysconfig/mesos-firewall-rules.json
+    config: true
+  - src: "{{.SpecRoot}}/mesos-credential"
+    dest: /etc/sysconfig/mesos-credential
+    config: true
+
+scripts:
+  after-install: |
+    systemctl enable /etc/systemd/system/mesos-agent.service
+    systemctl start mesos-agent.service
+
+  before-remove: |
+    systemctl disable mesos-agent.service
+
+  after-upgrade: |
+    systemctl reload-daemon
+    systemctl restart mesos-agent.service
+
+extra-args: |
+  --rpm-os linux
+  --rpm-dist CentOS

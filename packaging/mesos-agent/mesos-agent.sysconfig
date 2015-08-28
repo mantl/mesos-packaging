@@ -1,0 +1,20 @@
+# common configuration
+export MESOS_FIREWALL_RULES=$(cat /etc/sysconfig/mesos-firewall-rules.json)
+# export MESOS_IP= # OR export MESOS_IP_DISCOVERY_COMMAND=
+export MESOS_LOG_DIR=/var/log/mesos
+export MESOS_LOGGING_LEVEL=INFO
+export MESOS_PORT=5051
+
+# agent configuration
+export MESOS_MASTER=zk://localhost:2181/mesos # REQUIRED
+
+export MESOS_ATTRIBUTES=
+export MESOS_CONTAINERIZERS=mesos # try "docker,mesos" for Docker containerizer
+export MESOS_WORK_DIR=/var/lib/mesos
+
+cred_file=/etc/sysconfig/mesos-credential
+if [ ! -s ${cred_file} ]; then
+    export MESOS_CREDENTIAL=file://${cred_file}
+fi
+
+export EXTRA_OPTS=""
