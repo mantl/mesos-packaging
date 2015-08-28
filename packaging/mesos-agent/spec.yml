@@ -18,8 +18,8 @@ targets:
   - src: "{{.SpecRoot}}/mesos-agent.sysconfig"
     dest: /etc/sysconfig/mesos-agent
     config: true
-  - src: "{{.SpecRoot}}/mesos-firewall-rules.json"
-    dest: /etc/sysconfig/mesos-firewall-rules.json
+  - src: "{{.SpecRoot}}/mesos-agent-firewall-rules.json"
+    dest: /etc/sysconfig/mesos-agent-firewall-rules.json
     config: true
   - src: "{{.SpecRoot}}/mesos-credential"
     dest: /etc/sysconfig/mesos-credential
