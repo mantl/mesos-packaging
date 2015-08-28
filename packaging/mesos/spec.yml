@@ -59,6 +59,9 @@ scripts:
       mkdir -p $dir || true
     done
 
+  after-install: |
+    ldconfig
+
 extra-args: |
   --rpm-os linux
   --rpm-dist CentOS
