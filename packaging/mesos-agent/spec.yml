@@ -10,13 +10,13 @@ architecture: noarch
 description: configuration files for the mesos-agent
 
 depends:
-  - mesos
+  - mesos-{{.Version}}
 
 targets:
   - src: "{{.SpecRoot}}/mesos-agent.service"
     dest: /etc/systemd/system/mesos-agent.service
   - src: "{{.SpecRoot}}/mesos-agent.sysconfig"
-    dest: /etc/sysconfig/consul
+    dest: /etc/sysconfig/mesos-agent
     config: true
   - src: "{{.SpecRoot}}/mesos-firewall-rules.json"
     dest: /etc/sysconfig/mesos-firewall-rules.json
