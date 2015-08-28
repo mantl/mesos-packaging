@@ -8,22 +8,22 @@ for building [Apache Mesos](http://mesos.apache.org).
 
 - [Mesos Packaging](#mesos-packaging)
     - [Packages](#packages)
-        - [`mesos`](#mesos)
-        - [`mesos-agent`](#mesos-agent)
+        - [mesos](#mesos)
+        - [mesos-agent](#mesos-agent)
     - [Building](#building)
 
 <!-- markdown-toc end -->
 
 ## Packages
 
-### `mesos`
+### mesos
 
 [spec](packaging/mesos/spec.yml)
 
 The base Mesos package, including bindings. There is no configuration in this
 package.
 
-### `mesos-agent`
+### mesos-agent
 
 [spec](packaging/mesos-agent/spec.yml)
 
