@@ -3,14 +3,14 @@ name: mesos-agent
 version: 0.23.0
 license: ASL 2.0
 iteration: 1
-epoch: 1
 vendor: Mesos
 url: http://mesos.apache.org/
 architecture: noarch
 description: configuration files for the mesos-agent
 
 depends:
-  - mesos-{{.Version}}
+  - mesos = {{.Version}}
+  - systemd
 
 targets:
   - src: "{{.SpecRoot}}/mesos-agent.service"
@@ -31,6 +31,7 @@ scripts:
     systemctl start mesos-agent.service
 
   before-remove: |
+    systemctl stop mesos-agent.service
     systemctl disable mesos-agent.service
 
   after-upgrade: |
@@ -39,4 +40,5 @@ scripts:
 
 extra-args: |
   --rpm-os linux
-  --rpm-dist CentOS
+  --rpm-auto-add-exclude-directories /etc/systemd
+  --rpm-auto-add-exclude-directories /etc/systemd/system
