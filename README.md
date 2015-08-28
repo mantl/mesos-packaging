@@ -18,22 +18,28 @@ for building [Apache Mesos](http://mesos.apache.org).
 
 ### mesos
 
-[spec](packaging/mesos/spec.yml)
+[*spec*](packaging/mesos/spec.yml)
 
 The base Mesos package, including bindings. There is no configuration in this
 package.
 
+### mesos-master
+
+[*spec*](packaging/mesos-master/spec.yml)
+
+The mesos master process. This is a configuration-only package, and will provide
+the `mesos-master` service by depending on `mesos`. `mesos-master` is configured
+via environment variables in `/etc/sysconfig/mesos-master`.
+
 ### mesos-agent
 
-[spec](packaging/mesos-agent/spec.yml)
+[*spec*](packaging/mesos-agent/spec.yml)
 
 The mesos agent process (formerly `mesos-slave`). This package name is being
 changed in advance of the upstream change to `mesos-agent`, and will call the
 appropriate binaries for the version of Mesos provided. This is a
 configuration-only package, and will provide the `mesos-agent` service by
-depending on `mesos`
-
-`mesos-agent` is configured via environment variables in
+depending on `mesos`. `mesos-agent` is configured via environment variables in
 `/etc/sysconfig/mesos-agent`.
 
 ## Building
