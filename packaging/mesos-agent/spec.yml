@@ -13,15 +13,15 @@ depends:
   - systemd
 
 targets:
-  - src: '{{specFile "mesos-agent.service" }}'
+  - src: '{{specFile "mesos-agent.service"}}'
     dest: /etc/systemd/system/mesos-agent.service
-  - src: '{{specFile "mesos-agent.sysconfig" }}'
+  - src: '{{specFile "mesos-agent.sysconfig"}}'
     dest: /etc/sysconfig/mesos-agent
     config: true
   - src: '{{specFile "mesos-agent-firewall-rules.json"}}'
     dest: /etc/sysconfig/mesos-agent-firewall-rules.json
     config: true
-  - src: '{{specFile "mesos-credential" }}'
+  - src: '{{specFile "mesos-credential"}}'
     dest: /etc/sysconfig/mesos-credential
     config: true
 
