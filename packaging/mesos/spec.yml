@@ -23,7 +23,7 @@ targets:
 
 scripts:
   build: |
-    {{include (specFile "build.sh")}}
+    {{includeTemplate (specFile "build.sh")}}
 
   before-install: |
     {{include (specFile "before-install.sh")}}
