@@ -13,15 +13,15 @@ depends:
   - systemd
 
 targets:
-  - src: "{{.SpecRoot}}/mesos-agent.service"
+  - src: '{{specFile "mesos-agent.service" }}'
     dest: /etc/systemd/system/mesos-agent.service
-  - src: "{{.SpecRoot}}/mesos-agent.sysconfig"
+  - src: '{{specFile "mesos-asgent.sysconfig" }}'
     dest: /etc/sysconfig/mesos-agent
     config: true
-  - src: "{{.SpecRoot}}/mesos-agent-firewall-rules.json"
+  - src: '{{specFile "mesos-agent-firewall-rules.json"}}'
     dest: /etc/sysconfig/mesos-agent-firewall-rules.json
     config: true
-  - src: "{{.SpecRoot}}/mesos-credential"
+  - src: '{{specFile "mesos-credential" }}'
     dest: /etc/sysconfig/mesos-credential
     config: true
 
@@ -40,5 +40,3 @@ scripts:
 
 extra-args: |
   --rpm-os linux
-  --rpm-auto-add-exclude-directories /etc/systemd
-  --rpm-auto-add-exclude-directories /etc/systemd/system
