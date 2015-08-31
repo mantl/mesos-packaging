@@ -15,7 +15,7 @@ depends:
 targets:
   - src: '{{specFile "mesos-agent.service" }}'
     dest: /etc/systemd/system/mesos-agent.service
-  - src: '{{specFile "mesos-asgent.sysconfig" }}'
+  - src: '{{specFile "mesos-agent.sysconfig" }}'
     dest: /etc/sysconfig/mesos-agent
     config: true
   - src: '{{specFile "mesos-agent-firewall-rules.json"}}'
