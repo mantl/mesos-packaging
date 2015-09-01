@@ -33,6 +33,7 @@ scripts:
 
 extra-args: |
   --rpm-os linux
+  --rpm-auto-add-directories
   --rpm-auto-add-exclude-directories /usr/share/java
   --rpm-auto-add-exclude-directories /usr/lib/python2.7
   --rpm-auto-add-exclude-directories /usr/lib/python2.7/site-packages
