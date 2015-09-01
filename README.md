@@ -9,7 +9,9 @@ for building [Apache Mesos](http://mesos.apache.org).
 - [Mesos Packaging](#mesos-packaging)
     - [Packages](#packages)
         - [mesos](#mesos)
+        - [mesos-master](#mesos-master)
         - [mesos-agent](#mesos-agent)
+        - [mesos-agent-dynamic](#mesos-agent-dynamic)
     - [Building](#building)
 
 <!-- markdown-toc end -->
@@ -41,6 +43,25 @@ appropriate binaries for the version of Mesos provided. This is a
 configuration-only package, and will provide the `mesos-agent` service by
 depending on `mesos`. `mesos-agent` is configured via environment variables in
 `/etc/sysconfig/mesos-agent`.
+
+### mesos-agent-dynamic
+
+[*spec*](packaging/mesos-agent-dynamic/spec.yml)
+
+Makes [mesos-agent](#mesos-agent) dynamic by populating it with
+[consul-template](https://github.com/hashicorp/consul-template)
+([spec](https://github.com/asteris-llc/consul-packaging/blob/master/packaging/consul-template/spec.yml)).
+
+Available configuration:
+
+| Key | Description | Default |
+|-----|-------------|---------|
+| `os/agent/logging_level` | log verbosity level | `INFO` |
+| `mesos/agent/port` | port to listen on | `5051` |
+| `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
+| `mesos/agent/containerizers` | containerizer list | `mesos` |
+| `mesos/agent/principal` and `mesos/agent/secret` | agent principal and secret, respectively | not set |
+| `mesos/agent/opts` | extra options in command-line form | not set |
 
 ## Building
 
