@@ -1,0 +1,17 @@
+# common configuration
+MESOS_FIREWALL_RULES=file:///etc/sysconfig/mesos-agent-firewall-rules.json
+MESOS_LOG_DIR=/var/log/mesos
+MESOS_LOGGING_LEVEL={{or (key "mesos/agent/logging_level") "INFO"}}
+MESOS_PORT={{or (key "mesos/agent/port") 5051}}
+
+# agent configuration
+
+# required
+MESOS_MASTER={{or (key "mesos/zk") "zk://localhost:2181/mesos"}}
+
+# optional
+MESOS_CONTAINERIZERS={{or (key "mesos/agent/containerizers") "mesos"}}
+{{if not (key "mesos/agent/principal")}}# {{end}}MESOS_CREDENTIAL=file:///etc/sysconfig/mesos-credential
+MESOS_WORK_DIR=/var/lib/mesos
+
+EXTRA_OPTS="{{key "mesos/agent/opts"}}"
