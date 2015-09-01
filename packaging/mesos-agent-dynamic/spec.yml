@@ -23,7 +23,7 @@ targets:
 scripts:
   after-install: |
     # move existing configurations out of the way
-    for file in mesos-agent mesos-credential; do
+    for file in mesos-agent mesos-credential mesos-agent-firewall-rules.json; do
       ln -sb --suffix=.pre-dynamic /var/run/consul-template/${file} /etc/sysconfig/${file}
     done
 
@@ -42,7 +42,7 @@ scripts:
     systemctl restart consul-template.service
 
     # restart services which were being templated
-    for file in mesos-agent mesos-credential; do
+    for file in mesos-agent mesos-credential mesos-agent-firewall-rules.json; do
       rm /etc/sysconfig/${file}
       mv /etc/sysconfig/${file}.pre-dynamic /etc/sysconfig/${file}
     done
