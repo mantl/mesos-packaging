@@ -56,13 +56,13 @@ Available configuration:
 
 | Key | Description | Default |
 |-----|-------------|---------|
-| `os/agent/logging_level` | log verbosity level | `INFO` |
-| `mesos/agent/port` | port to listen on | `5051` |
-| `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
 | `mesos/agent/containerizers` | containerizer list | `mesos` |
-| `mesos/agent/principal` and `mesos/agent/secret` | agent principal and secret, respectively | not set |
-| `mesos/agent/opts` | extra options in command-line form | not set |
 | `mesos/agent/firewall_rules` | see [Mesos docs](http://mesos.apache.org/documentation/latest/configuration/) | `{}` |
+| `mesos/agent/logging_level` | log verbosity level | `INFO` |
+| `mesos/agent/opts` | extra options in command-line form | not set |
+| `mesos/agent/port` | port to listen on | `5051` |
+| `mesos/agent/principal` and `mesos/agent/secret` | agent principal and secret, respectively | not set |
+| `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
 
 ## Building
 
