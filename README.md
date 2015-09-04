@@ -91,7 +91,7 @@ Available configuration:
 | `mesos/agent/containerizers` | containerizer list | `mesos` |
 | `mesos/agent/firewall_rules` | see [Mesos docs](http://mesos.apache.org/documentation/latest/configuration/) | `{}` |
 | `mesos/agent/logging_level` | log verbosity level | `INFO` |
-| `mesos/agent/opts` | extra options in command-line form | not set |
+| `mesos/agent/opts` | extra options to pass to `mesos-agent` | not set |
 | `mesos/agents/{node}/attributes` | the node attributes | not set |
 | `mesos/agents/{node}/ip` | on a per-node level, the IP to listen on | not set |
 | `mesos/agents/{node}/port` | on a per-node level, the port to listen on | `5051` |
