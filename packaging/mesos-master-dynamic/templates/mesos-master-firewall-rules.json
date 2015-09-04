@@ -1,0 +1,1 @@
+{{or (key "mesos/master/firewall_rules") "{}"}}

@@ -1,0 +1,30 @@
+# common configuration
+MESOS_FIREWALL_RULES=file:///etc/sysconfig/mesos-master-firewall-rules.json
+MESOS_LOG_DIR=/var/log/mesos
+MESOS_LOGGING_LEVEL={{or (key "mesos/master/logging_level") "INFO"}}
+{{with key (plugin "keyForNode" "mesos/masters/%s/ip")}}MESOS_IP={{.}}{{else}}# MESOS_IP={{end}}
+MESOS_PORT={{or (key (plugin "keyForNode" "mesos/masters/%s/port")) 5050}}
+MESOS_EXTERNAL_LOG_FILE=/var/log/mesos
+
+# master configuration
+
+# required
+{{with key (plugin "keyForNode" "mesos/masters/%s/advertise_ip")}}MESOS_ADVERTISE_IP={{.}}{{else}}# MESOS_ADVERTISE_IP={{end}}
+MESOS_ADVERTISE_PORT={{or (key (plugin "keyForNode" "mesos/masters/%s/avertise_port")) 5050}}
+MESOS_QUORUM={{or (key "mesos/master/quorum") 1}}
+MESOS_WORK_DIR=/var/lib/mesos
+MESOS_ZK={{or (key "mesos/zk") "zk://localhost:2181/mesos"}}
+
+# optional
+MESOS_CLUSTER={{or (key "mesos/master/cluster") "mesos"}}
+{{with key (plugin "keyForNode" "mesos/masters/%s/hostname")}}MESOS_HOSTNAME={{.}}{{else}}# MESOS_HOSTNAME={{end}}
+{{with key "mesos/master/offer_timeout"}}MESOS_OFFER_TIMEOUT={{.}}{{else}}# MESOS_OFFER_TIMEOUT={{end}}
+{{with key "mesos/master/roles"}}MESOS_ROLES={{.}}{{else}}# MESOS_ROLES={{end}}
+{{with key "mesos/master/weights"}}MESOS_WEIGHTS={{.}}{{else}}# MESOS_WEIGHTS={{end}}
+
+# credentials
+{{if not (key "mesos/master/authenticate_agents")}}# {{end}}MESOS_AUTHENTICATE_SLAVES=1
+{{if not (key "mesos/master/authenticate")}}# {{end}}MESOS_AUTHENTICATE=1
+{{if not (or (key "mesos/master/authenticate_agents") (key "mesos/master/authenticate"))}}# {{end}}MESOS_CREDENTIALS=file:///etc/sysconfig/mesos-credentials
+
+EXTRA_OPTS="{{key "mesos/master/opts"}}"

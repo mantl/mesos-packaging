@@ -10,6 +10,7 @@ for building [Apache Mesos](http://mesos.apache.org).
     - [Packages](#packages)
         - [mesos](#mesos)
         - [mesos-master](#mesos-master)
+        - [mesos-master-dynamic](#mesos-master-dynamic)
         - [mesos-agent](#mesos-agent)
         - [mesos-agent-dynamic](#mesos-agent-dynamic)
     - [Building](#building)
@@ -32,6 +33,37 @@ package.
 The mesos master process. This is a configuration-only package, and will provide
 the `mesos-master` service by depending on `mesos`. `mesos-master` is configured
 via environment variables in `/etc/sysconfig/mesos-master`.
+
+### mesos-master-dynamic
+
+[*spec*](packaging/mesos-master-dynamic/spec.yml)
+
+Makes [mesos-master](#mesos-master) dynamic by populating it with
+[consul-template](https://github.com/hashicorp/consul-template)
+([spec](https://github.com/asteris-llc/consul-packaging/blob/master/packaging/consul-template/spec.yml)).
+
+Available configuration:
+
+| Key | Description | Default |
+|-----|-------------|---------|
+| `mesos/agents/{node}/principal` and `mesos/agents/{node}/secret` | agent principal(s) and secret(s), respectively | not set |
+| `mesos/frameworks/{name}/principal` and `mesos/frameworks/{name}/secret` | framework principal(s) and secret(s), respectively | not set |
+| `mesos/master/authenticate_agents` | authenticate agents | not set (set to any value to activate) |
+| `mesos/master/authenticate` | authenticate frameworks | not set (set to any value to activate) |
+| `mesos/master/cluster` | cluster name | `mesos` |
+| `mesos/master/firewall_rules` | see [Mesos docs](http://mesos.apache.org/documentation/latest/configuration/) | `{}` |
+| `mesos/master/logging_level` | log verbosity level | `INFO` |
+| `mesos/master/offer_timeout` | timeout for offers to frameworks | not set |
+| `mesos/master/opts` | extra options to pass to `mesos-master` | not set |
+| `mesos/master/quorum` | quorum to elect a leader | `1` |
+| `mesos/master/roles` | allocation roles that frameworks may belong to | not set |
+| `mesos/master/weights` | weights for roles int he cluster | not set |
+| `mesos/masters/{node}/advertise_ip` | on a per-node level, the advertised IP | not set |
+| `mesos/masters/{node}/advertise_port` | on a per-node level, the advertised port | `5050` |
+| `mesos/masters/{node}/hostname` | on a per-node level, the hostname to advertise | `5050` |
+| `mesos/masters/{node}/ip` | on a per-node level, the IP to listen on | not set |
+| `mesos/masters/{node}/port` | on a per-node level, the port to listen on | `5050` |
+| `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
 
 ### mesos-agent
 
