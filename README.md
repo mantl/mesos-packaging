@@ -60,10 +60,10 @@ Available configuration:
 | `mesos/agent/firewall_rules` | see [Mesos docs](http://mesos.apache.org/documentation/latest/configuration/) | `{}` |
 | `mesos/agent/logging_level` | log verbosity level | `INFO` |
 | `mesos/agent/opts` | extra options in command-line form | not set |
-| `mesos/agent/principal` and `mesos/agent/secret` | agent principal and secret, respectively | not set |
 | `mesos/agents/{node}/attributes` | the node attributes | not set |
 | `mesos/agents/{node}/ip` | on a per-node level, the IP to listen on | not set |
 | `mesos/agents/{node}/port` | on a per-node level, the port to listen on | `5051` |
+| `mesos/agents/{node}/principal` and `mesos/agents/{node}/secret` | agent principal and secret, respectively | not set |
 | `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
 
 ## Building
