@@ -3,6 +3,16 @@ language: go
 
 sudo: required
 
+matrix:
+  env:
+    - PACKAGE=marathon
+    - PACKAGE=marathon-dev
+    - PACKAGE=mesos
+    - PACKAGE=mesos-agent
+    - PACKAGE=mesos-agent-dynamic
+    - PACKAGE=mesos-master
+    - PACKAGE=mesos-master-dynamic
+
 install:
   # packages for packaging
   - go get -v github.com/asteris-llc/hammer
@@ -13,7 +23,7 @@ install:
   - apt-get install build-essential python-dev python-boto libcurl4-nss-dev libsasl2-dev maven libapr1-dev libsvn-dev
 
 script:
-  - hammer build --output=/tmp/out
+  - hammer build --output=/tmp/out $PACKAGE
 
 after_failure:
   - tail logs/*
