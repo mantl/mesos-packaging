@@ -13,6 +13,7 @@ for building [Apache Mesos](http://mesos.apache.org).
         - [mesos-master-dynamic](#mesos-master-dynamic)
         - [mesos-agent](#mesos-agent)
         - [mesos-agent-dynamic](#mesos-agent-dynamic)
+        - [marathon](#marathon)
     - [Building](#building)
 
 <!-- markdown-toc end -->
@@ -97,6 +98,16 @@ Available configuration:
 | `mesos/agents/{node}/port` | on a per-node level, the port to listen on | `5051` |
 | `mesos/agents/{node}/principal` and `mesos/agents/{node}/secret` | agent principal and secret, respectively | not set |
 | `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
+
+### marathon
+
+[*spec*](packaging/marathon/spec.yml)
+
+[Marathon](http://mesosphere.github.io/marathon), a cluster-wide init and
+control system for services in cgroups or Docker containers. Marathon can be
+controlled with environment variables in `/etc/sysconfig/marathon`, the
+available options are documented in the
+[Marathon command-line flags documentation](http://mesosphere.github.io/marathon/docs/command-line-flags.html).
 
 ## Building
 
