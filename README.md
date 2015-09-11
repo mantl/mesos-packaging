@@ -14,6 +14,7 @@ for building [Apache Mesos](http://mesos.apache.org).
         - [mesos-agent](#mesos-agent)
         - [mesos-agent-dynamic](#mesos-agent-dynamic)
         - [marathon](#marathon)
+        - [marathon-dynamic](#marathon-dynamic)
     - [Building](#building)
 
 <!-- markdown-toc end -->
@@ -108,6 +109,21 @@ control system for services in cgroups or Docker containers. Marathon can be
 controlled with environment variables in `/etc/sysconfig/marathon`, the
 available options are documented in the
 [Marathon command-line flags documentation](http://mesosphere.github.io/marathon/docs/command-line-flags.html).
+
+### marathon-dynamic
+
+[*spec*](packaging/marathon-dynamic/spec.yml)
+
+Makes [marathon](#marathon) dynamic by populating it with
+[consul-template](https://github.com/hashicorp/consul-template)
+([spec](https://github.com/asteris-llc/consul-packaging/blob/master/packaging/consul-template/spec.yml)).
+
+Available configuration:
+
+| Key | Description |
+|-----|-------------|
+| `marathon/config/{key}` | any key from the [command line flags](http://mesosphere.github.io/marathon/docs/command-line-flags.html). Value will be uppercased to become an environment variable. |
+| `marathon/nodes/{node}/config/{key}` | the same as `marathon/config/{key}`, but the flags will only be applied to the specified node |
 
 ## Building
 
