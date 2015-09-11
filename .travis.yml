@@ -5,7 +5,7 @@ sudo: required
 
 env:
   - PACKAGE=marathon
-  - PACKAGE=marathon-dev
+  - PACKAGE=marathon-dynamic
   - PACKAGE=mesos
   - PACKAGE=mesos-agent
   - PACKAGE=mesos-agent-dynamic
