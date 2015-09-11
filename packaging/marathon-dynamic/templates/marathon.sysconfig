@@ -1,0 +1,11 @@
+# defaults
+MARATHON_MASTER=zk://localhost:2181/mesos
+MARATHON_LOGGING_LEVEL=info
+
+# overrides
+{{range ls "marathon/config"}}MARATHON_{{.Key | toUpper}}={{.Value}}
+{{end}}
+
+# node-specific overrides
+{{range ls (plugin "keyForNode" "marathon/nodes/%s/config")}}MARATHON_{{.Key | toUpper}}={{.Value}}
+{{end}}
