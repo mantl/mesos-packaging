@@ -2,15 +2,19 @@
 language: go
 
 env:
-  - PACKAGE=marathon
   - PACKAGE=marathon-dynamic
   - PACKAGE=mesos-agent
   - PACKAGE=mesos-agent-dynamic
   - PACKAGE=mesos-master
   - PACKAGE=mesos-master-dynamic
+
   # we can't build Mesos on Travis right now because their version of GCC
   # (4.6.3) is less than the required version for building Mesos (4.6)
   # - PACKAGE=mesos
+
+  # we don't build Marathon on the Travis infrastructure because it takes
+  # *forever*
+  # - PACKAGE=marathon
 
 sudo: false
 
