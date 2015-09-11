@@ -1,8 +1,6 @@
 ---
 language: go
 
-sudo: required
-
 env:
   - PACKAGE=marathon
   - PACKAGE=marathon-dynamic
@@ -12,15 +10,29 @@ env:
   - PACKAGE=mesos-master
   - PACKAGE=mesos-master-dynamic
 
+sudo: false
+
+addons:
+  apt:
+    packages:
+      # hammer
+      - rpm
+
+      # mesos
+      - build-essential
+      - python-dev
+      - python-boto
+      - libcurl4-nss-dev
+      - libsasl2-dev
+      - maven
+      - libapr1-dev
+      - libsvn-dev
+
+
 install:
   # packages for packaging
   - go get -v github.com/asteris-llc/hammer
   - gem install fpm
-  - sudo apt-get update
-  - sudo apt-get install rpm
-
-  # packages for building Mesos
-  - sudo apt-get install build-essential python-dev python-boto libcurl4-nss-dev libsasl2-dev maven libapr1-dev libsvn-dev
 
 script:
   - hammer build --output=/tmp/out $PACKAGE
