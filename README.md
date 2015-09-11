@@ -127,6 +127,6 @@ Available configuration:
 
 ## Building
 
-If you`re on linux, run `hammer` to build all of the packages, which will end up
+If you're on linux, run `hammer` to build all of the packages, which will end up
 in `out`. If you're on another platform, run `./build.sh` to fire up a Vagrant
 VM that will provision itself with hammer and do the same.
