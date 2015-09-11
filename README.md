@@ -102,7 +102,7 @@ Available configuration:
 
 ### marathon
 
-[*spec*](packaging/marathon/spec.yml)
+[*spec*](frameworks/marathon/spec.yml)
 
 [Marathon](http://mesosphere.github.io/marathon), a cluster-wide init and
 control system for services in cgroups or Docker containers. Marathon can be
@@ -112,7 +112,7 @@ available options are documented in the
 
 ### marathon-dynamic
 
-[*spec*](packaging/marathon-dynamic/spec.yml)
+[*spec*](frameworks/marathon-dynamic/spec.yml)
 
 Makes [marathon](#marathon) dynamic by populating it with
 [consul-template](https://github.com/hashicorp/consul-template)
