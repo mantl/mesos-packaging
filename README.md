@@ -8,27 +8,31 @@ for building [Apache Mesos](http://mesos.apache.org).
 
 - [Mesos Packaging](#mesos-packaging)
     - [Packages](#packages)
-        - [mesos](#mesos)
-        - [mesos-master](#mesos-master)
-        - [mesos-master-dynamic](#mesos-master-dynamic)
-        - [mesos-agent](#mesos-agent)
-        - [mesos-agent-dynamic](#mesos-agent-dynamic)
-        - [marathon](#marathon)
-        - [marathon-dynamic](#marathon-dynamic)
+        - [Core](#core)
+            - [mesos](#mesos)
+            - [mesos-master](#mesos-master)
+            - [mesos-master-dynamic](#mesos-master-dynamic)
+            - [mesos-agent](#mesos-agent)
+            - [mesos-agent-dynamic](#mesos-agent-dynamic)
+        - [Frameworks](#frameworks)
+            - [marathon](#marathon)
+            - [marathon-dynamic](#marathon-dynamic)
     - [Building](#building)
 
 <!-- markdown-toc end -->
 
 ## Packages
 
-### mesos
+### Core
+
+#### mesos
 
 [*spec*](core/mesos/spec.yml)
 
 The base Mesos package, including bindings. There is no configuration in this
 package.
 
-### mesos-master
+#### mesos-master
 
 [*spec*](core/mesos-master/spec.yml)
 
@@ -36,7 +40,7 @@ The mesos master process. This is a configuration-only package, and will provide
 the `mesos-master` service by depending on `mesos`. `mesos-master` is configured
 via environment variables in `/etc/sysconfig/mesos-master`.
 
-### mesos-master-dynamic
+#### mesos-master-dynamic
 
 [*spec*](core/mesos-master-dynamic/spec.yml)
 
@@ -67,7 +71,7 @@ Available configuration:
 | `mesos/masters/{node}/port` | on a per-node level, the port to listen on | `5050` |
 | `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
 
-### mesos-agent
+#### mesos-agent
 
 [*spec*](core/mesos-agent/spec.yml)
 
@@ -78,7 +82,7 @@ configuration-only package, and will provide the `mesos-agent` service by
 depending on `mesos`. `mesos-agent` is configured via environment variables in
 `/etc/sysconfig/mesos-agent`.
 
-### mesos-agent-dynamic
+#### mesos-agent-dynamic
 
 [*spec*](core/mesos-agent-dynamic/spec.yml)
 
@@ -100,7 +104,9 @@ Available configuration:
 | `mesos/agents/{node}/principal` and `mesos/agents/{node}/secret` | agent principal and secret, respectively | not set |
 | `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
 
-### marathon
+### Frameworks
+
+#### marathon
 
 [*spec*](frameworks/marathon/spec.yml)
 
@@ -110,7 +116,7 @@ controlled with environment variables in `/etc/sysconfig/marathon`, the
 available options are documented in the
 [Marathon command-line flags documentation](http://mesosphere.github.io/marathon/docs/command-line-flags.html).
 
-### marathon-dynamic
+#### marathon-dynamic
 
 [*spec*](frameworks/marathon-dynamic/spec.yml)
 
