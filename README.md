@@ -23,14 +23,14 @@ for building [Apache Mesos](http://mesos.apache.org).
 
 ### mesos
 
-[*spec*](packaging/mesos/spec.yml)
+[*spec*](core/mesos/spec.yml)
 
 The base Mesos package, including bindings. There is no configuration in this
 package.
 
 ### mesos-master
 
-[*spec*](packaging/mesos-master/spec.yml)
+[*spec*](core/mesos-master/spec.yml)
 
 The mesos master process. This is a configuration-only package, and will provide
 the `mesos-master` service by depending on `mesos`. `mesos-master` is configured
@@ -38,7 +38,7 @@ via environment variables in `/etc/sysconfig/mesos-master`.
 
 ### mesos-master-dynamic
 
-[*spec*](packaging/mesos-master-dynamic/spec.yml)
+[*spec*](core/mesos-master-dynamic/spec.yml)
 
 Makes [mesos-master](#mesos-master) dynamic by populating it with
 [consul-template](https://github.com/hashicorp/consul-template)
@@ -69,7 +69,7 @@ Available configuration:
 
 ### mesos-agent
 
-[*spec*](packaging/mesos-agent/spec.yml)
+[*spec*](core/mesos-agent/spec.yml)
 
 The mesos agent process (formerly `mesos-slave`). This package name is being
 changed in advance of the upstream change to `mesos-agent`, and will call the
@@ -80,7 +80,7 @@ depending on `mesos`. `mesos-agent` is configured via environment variables in
 
 ### mesos-agent-dynamic
 
-[*spec*](packaging/mesos-agent-dynamic/spec.yml)
+[*spec*](core/mesos-agent-dynamic/spec.yml)
 
 Makes [mesos-agent](#mesos-agent) dynamic by populating it with
 [consul-template](https://github.com/hashicorp/consul-template)
