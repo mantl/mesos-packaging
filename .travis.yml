@@ -20,7 +20,7 @@ install:
   - sudo apt-get install rpm
 
   # packages for building Mesos
-  - apt-get install build-essential python-dev python-boto libcurl4-nss-dev libsasl2-dev maven libapr1-dev libsvn-dev
+  - sudo apt-get install build-essential python-dev python-boto libcurl4-nss-dev libsasl2-dev maven libapr1-dev libsvn-dev
 
 script:
   - hammer build --output=/tmp/out $PACKAGE
