@@ -6,7 +6,7 @@ iteration: 1
 vendor: Mesosphere
 architecture: x86_64
 url: http://mesos.apache.org/
-description: 
+description: A cluster-wide init and control system for services in cgroups or Docker containers
 
 depends:
   - java-1.8.0-openjdk-headless
@@ -24,6 +24,7 @@ targets:
     dest: /usr/bin/marathon
   - src: '{{.SpecRoot}}/marathon.service'
     dest: /etc/systemd/system/
+    template: true
   - src: '{{.SpecRoot}}/marathon.sysconfig'
     dest: /etc/sysconfig/marathon
 

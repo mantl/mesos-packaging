@@ -1,5 +1,6 @@
 [Unit]
-Description=Marathon
+Description={{.Description}}
+Documentation={{.URL}}
 After=network.target
 Wants=network.target
 
