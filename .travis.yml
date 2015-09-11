@@ -16,6 +16,7 @@ install:
   # packages for packaging
   - go get -v github.com/asteris-llc/hammer
   - gem install fpm
+  - sudo apt-get update
   - sudo apt-get install rpm
 
   # packages for building Mesos
