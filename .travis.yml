@@ -1,0 +1,18 @@
+---
+language: go
+
+sudo: required
+
+install:
+  - go get -v github.com/asteris-llc/hammer
+  - gem install fpm
+  - sudo apt-get install rpm
+
+script:
+  - hammer build --output=/tmp/out
+
+deploy:
+  provider: script
+  script: /bin/bash scripts/bintray.sh /tmp/out
+  on:
+    branch: master
