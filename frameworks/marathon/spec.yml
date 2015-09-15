@@ -7,6 +7,7 @@ vendor: Mesosphere
 architecture: x86_64
 url: http://mesosphere.github.io/marathon
 description: A cluster-wide init and control system for services in cgroups or Docker containers
+type: rpm
 
 depends:
   - java-1.8.0-openjdk-headless

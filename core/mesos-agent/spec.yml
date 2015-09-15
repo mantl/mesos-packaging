@@ -7,6 +7,7 @@ vendor: Mesos
 url: http://mesos.apache.org/
 architecture: noarch
 description: configuration files for the mesos-agent
+type: rpm
 
 depends:
   - mesos = {{.Version}}

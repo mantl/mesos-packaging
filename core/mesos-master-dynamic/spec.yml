@@ -7,6 +7,7 @@ vendor: Asteris
 url: http://github.com/asteris-llc/mesos-packaging
 architecture: noarch
 description: dynamic reconfiguration of mesos-master with Consul
+type: rpm
 
 depends:
   - consul-template >= 0.10.0

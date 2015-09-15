@@ -7,6 +7,7 @@ vendor: Mesos
 architecture: x86_64
 url: http://mesos.apache.org/
 description: Apache Mesos abstracts CPU, memory, storage, and other compute resources away from machines (physical or virtual), enabling fault-tolerant and elastic distributed systems to easily be built and run effectively.
+type: rpm
 
 depends:
   - cyrus-sasl
