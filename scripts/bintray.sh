@@ -11,7 +11,7 @@ for PKG in $(ls $OUTPUT); do
     fi
 
     echo "$PKG:\tuploading"
-    URL=$(echo $PKG | sed -E "s|^(([a-zA-Z\-]+)-([0-9\.\-]+)\..*)$|https://api.bintray.com/content/$BINTRAY_USER/$BINTRAY_PROJECT/\2/\3/\1|")
+    URL=$(echo $PKG | sed -E "s|^(([a-zA-Z\-]+)-([0-9\.\-]+)\..*)$|https://api.bintray.com/content/$BINTRAY_PROJECT/\2/\3/\1|")
     RESP=$(curl -T $OUTPUT/$PKG -u$BINTRAY_USER:$BINTRAY_API_KEY $URL)
     if [[ "$RESP" == "{}" ]]; then
         echo "$PKG:	succesfully uploaded"
