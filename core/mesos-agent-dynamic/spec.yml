@@ -11,7 +11,7 @@ type: rpm
 
 depends:
   - consul-template >= 0.10.0
-  - mesos-agent
+  - mesos-agent = {{.Version}}
 
 targets:
   - src: '{{specFile "mesos-agent.hcl"}}'
