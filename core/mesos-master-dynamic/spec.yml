@@ -1,6 +1,6 @@
 ---
 name: mesos-master-dynamic
-version: 0.23.0
+version: 0.24.0
 license: ASL 2.0
 iteration: 1
 vendor: Asteris
@@ -11,7 +11,7 @@ type: rpm
 
 depends:
   - consul-template >= 0.10.0
-  - mesos-master
+  - mesos-master = {{.Version}}
 
 targets:
   - src: '{{specFile "mesos-master.hcl"}}'
