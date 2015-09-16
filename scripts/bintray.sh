@@ -4,7 +4,7 @@ set -e
 OUTPUT=${1:-out}
 
 for PKG in $(ls $OUTPUT); do
-    DOWNLOAD_URL="https://bintray.com/artifact/download/$BINTRAY_USER/$BINTRAY_PROJECT/$PKG"
+    DOWNLOAD_URL="https://bintray.com/artifact/download/$BINTRAY_PROJECT/$PKG"
     if curl -s -I $DOWNLOAD_URL | grep -q 302; then
         echo "$PKG:	found, not uploading"
         continue
