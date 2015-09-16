@@ -36,7 +36,7 @@ scripts:
     systemctl disable mesos-agent.service
 
   after-upgrade: |
-    systemctl reload-daemon
+    systemctl daemon-reload
     systemctl restart mesos-agent.service
 
 extra-args: |
