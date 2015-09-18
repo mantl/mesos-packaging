@@ -7,6 +7,8 @@ for building [Apache Mesos](http://mesos.apache.org).
 **Table of Contents**
 
 - [Mesos Packaging](#mesos-packaging)
+    - [Dynamic Configuration](#dynamic-configuration)
+        - [Per-node Configuration](#per-node-configuration)
     - [Packages](#packages)
         - [Core](#core)
             - [mesos](#mesos)
@@ -20,6 +22,26 @@ for building [Apache Mesos](http://mesos.apache.org).
     - [Building](#building)
 
 <!-- markdown-toc end -->
+
+## Dynamic Configuration
+
+Dynamic configuration is performed with [Consul](https://consul.io). The
+`{package}-dynamic` entries in this README describe the key spaces they look for
+to render configuration to disk. Be aware that most of these daemons need to be
+restarted when configuration changes, so account for that when you're changing
+keys.
+
+### Per-node Configuration
+
+In addition to the documented keys under each package, you can set per-node
+global options for these packages with certain flags. These will be documented
+in the config files if not set, but here's a short list:
+
+| Key                               | Description                |
+|-----------------------------------|----------------------------|
+| `config/nodes/{node}/external_ip` | node's external IP address |
+| `config/nodes/{node}/internal_ip` | node's internal IP address |
+| `config/nodes/{node}/hostname`    | node's hostname            |
 
 ## Packages
 
@@ -52,24 +74,22 @@ Available configuration:
 
 | Key | Description | Default |
 |-----|-------------|---------|
-| `mesos/agents/{node}/principal` and `mesos/agents/{node}/secret` | agent principal(s) and secret(s), respectively | not set |
-| `mesos/frameworks/{name}/principal` and `mesos/frameworks/{name}/secret` | framework principal(s) and secret(s), respectively | not set |
-| `mesos/master/authenticate_agents` | authenticate agents | not set (set to any value to activate) |
-| `mesos/master/authenticate` | authenticate frameworks | not set (set to any value to activate) |
-| `mesos/master/cluster` | cluster name | `mesos` |
-| `mesos/master/firewall_rules` | see [Mesos docs](http://mesos.apache.org/documentation/latest/configuration/) | `{}` |
-| `mesos/master/logging_level` | log verbosity level | `INFO` |
-| `mesos/master/offer_timeout` | timeout for offers to frameworks | not set |
-| `mesos/master/opts` | extra options to pass to `mesos-master` | not set |
-| `mesos/master/quorum` | quorum to elect a leader | `1` |
-| `mesos/master/roles` | allocation roles that frameworks may belong to | not set |
-| `mesos/master/weights` | weights for roles int he cluster | not set |
-| `mesos/masters/{node}/advertise_ip` | on a per-node level, the advertised IP | not set |
-| `mesos/masters/{node}/advertise_port` | on a per-node level, the advertised port | `5050` |
-| `mesos/masters/{node}/hostname` | on a per-node level, the hostname to advertise | `5050` |
-| `mesos/masters/{node}/ip` | on a per-node level, the IP to listen on | not set |
-| `mesos/masters/{node}/port` | on a per-node level, the port to listen on | `5050` |
-| `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
+| `config/mesos/agents/{node}/principal` and `config/mesos/agents/{node}/secret` | agent principal(s) and secret(s), respectively | not set |
+| `config/mesos/frameworks/{name}/principal` and `config/mesos/frameworks/{name}/secret` | framework principal(s) and secret(s), respectively | not set |
+| `config/mesos/master/extra_options` | extra command-line options to pass to `mesos-master` | not set |
+| `config/mesos/master/firewall_rules` | see [Mesos docs](http://mesos.apache.org/documentation/latest/configuration/) | `{}` |
+| `config/mesos/master/nodes/{node}/options` | same as options, but per-node | not set |
+| `config/mesos/master/options` | any key from the [configuration options](http://mesos.apache.org/documentation/latest/configuration/). Value will be uppercased to become an environment variable. | not set |
+
+This package assumes that authentication will be done globally, and so will not
+pay attention to unsetting the authentication per-node; it must be done
+globally. It also pays attention to both the `authenticate_slaves` and
+`authenticate_agents` flags for backwards compatibility.
+
+This package also uses `internal_ip`, `external_ip`, and `hostname` from the
+[Per-node Configuration](#per-node-configuration). Do note that you can override
+the values set in this way in the configuration by overriding them in
+`config/mesos/master/nodes/{node}/options`.
 
 #### mesos-agent
 
