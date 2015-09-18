@@ -114,15 +114,19 @@ Available configuration:
 
 | Key | Description | Default |
 |-----|-------------|---------|
-| `mesos/agent/containerizers` | containerizer list | `mesos` |
-| `mesos/agent/firewall_rules` | see [Mesos docs](http://mesos.apache.org/documentation/latest/configuration/) | `{}` |
-| `mesos/agent/logging_level` | log verbosity level | `INFO` |
-| `mesos/agent/opts` | extra options to pass to `mesos-agent` | not set |
-| `mesos/agents/{node}/attributes` | the node attributes | not set |
-| `mesos/agents/{node}/ip` | on a per-node level, the IP to listen on | not set |
-| `mesos/agents/{node}/port` | on a per-node level, the port to listen on | `5051` |
-| `mesos/agents/{node}/principal` and `mesos/agents/{node}/secret` | agent principal and secret, respectively | not set |
-| `mesos/zk` | zookeeper address | `zk://localhost:2181/mesos` |
+| `config/mesos/agent/extra_options` | extra command-line options to pass to `mesos-agent` | not set |
+| `config/mesos/agent/firewall_rules` | see [Mesos docs](http://mesos.apache.org/documentation/latest/configuration/) | `{}` |
+| `config/mesos/agent/nodes/{node}/options` | same as options, but per-node | not set |
+| `config/mesos/agent/options` | any key from the [configuration options](http://mesos.apache.org/documentation/latest/configuration/). Value will be uppercased to become an environment variable. | not set |
+| `config/mesos/agents/{node}/principal` and `config/mesos/agents/{node}/secret` | agent principal and secret, respectively. This uses the value of the Consul node to determine the key. | not set |
+
+Authentication for this package will be enabled if the principal and secret are
+both set.
+
+This package also uses `internal_ip` and `hostname` from the
+[Per-node Configuration](#per-node-configuration). Do note that you can override
+the values set in this way in the configuration by overriding them in
+`config/mesos/agent/nodes/{node}/options`.
 
 ### Frameworks
 
