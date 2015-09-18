@@ -128,8 +128,8 @@ Available configuration:
 
 | Key | Description |
 |-----|-------------|
-| `marathon/config/{key}` | any key from the [command line flags](http://mesosphere.github.io/marathon/docs/command-line-flags.html). Value will be uppercased to become an environment variable. |
-| `marathon/nodes/{node}/config/{key}` | the same as `marathon/config/{key}`, but the flags will only be applied to the specified node |
+| `config/marathon/options/{key}` | any key from the [command line flags](http://mesosphere.github.io/marathon/docs/command-line-flags.html). Value will be uppercased to become an environment variable. |
+| `config/marathon/hosts/{node}/options/{key}` | the same as `marathon/config/{key}`, but the flags will only be applied to the specified node |
 
 ## Building
 
