@@ -1,5 +1,5 @@
 # defaults
-MARATHON_MASTER=zk://localhost:2181/mesos
+MARATHON_MASTER=zk://zookeeper.service.consul:2181/mesos
 MARATHON_LOGGING_LEVEL=info
 
 # overrides

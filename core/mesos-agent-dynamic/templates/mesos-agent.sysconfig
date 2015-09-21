@@ -3,7 +3,7 @@ MESOS_FIREWALL_RULES=file:///etc/sysconfig/mesos-agent-firewall-rules.json
 MESOS_LOG_DIR=/var/log/mesos
 MESOS_LOGGING_LEVEL=INFO
 MESOS_PORT=5051
-MESOS_MASTER=zk://localhost:2181/mesos
+MESOS_MASTER=zk://zookeeper.service.consul:2181/mesos
 MESOS_WORK_DIR=/var/lib/mesos
 
 # overrides
