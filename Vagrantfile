@@ -6,14 +6,14 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.box = "chef/centos-7.0"
+  config.vm.box = "asteris/centos-7-hammer"
 
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--cpus", "4"]
     vb.customize ["modifyvm", :id, "--memory", "8192"]
   end
 
-  ["bootstrap.sh", "mesos.sh"].each do |script|
+  ["mesos.sh"].each do |script|
     config.vm.provision "shell", path: "scripts/#{script}"
   end
 end
