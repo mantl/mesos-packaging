@@ -5,7 +5,7 @@ Wants=network.target
 
 [Service]
 EnvironmentFile=/etc/sysconfig/mesos-master
-ExecStart=/usr/sbin/mesos-master ${EXTRA_OPTS}
+ExecStart=/usr/sbin/mesos-master $EXTRA_OPTS
 Restart=always
 RestartSec=20
 LimitNOFILE=16384
