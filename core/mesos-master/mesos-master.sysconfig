@@ -1,9 +1,6 @@
 # common configuration
 MESOS_FIREWALL_RULES=file:///etc/sysconfig/mesos-master-firewall-rules.json
-MESOS_LOG_DIR=/var/log/mesos
-MESOS_LOGGING_LEVEL=INFO
 MESOS_PORT=5050
-MESOS_EXTERNAL_LOG_FILE=/var/log/mesos
 
 # master configuration
 
