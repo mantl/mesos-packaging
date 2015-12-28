@@ -1,6 +1,6 @@
 ---
 name: mesos-agent
-version: 0.24.0
+version: 0.26.0
 license: ASL 2.0
 iteration: 1
 vendor: Mesos
@@ -28,12 +28,12 @@ targets:
 
 scripts:
   after-install: |
-    systemctl enable /etc/systemd/system/mesos-agent.service
+    systemctl enable /etc/systemd/system/mesos-agent.service 2> /dev/null
     systemctl start mesos-agent.service
 
   before-remove: |
     systemctl stop mesos-agent.service
-    systemctl disable mesos-agent.service
+    systemctl disable mesos-agent.service 2> /dev/null
 
   after-upgrade: |
     systemctl daemon-reload
