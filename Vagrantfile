@@ -12,4 +12,6 @@ Vagrant.configure(2) do |config|
     vb.customize ["modifyvm", :id, "--cpus", "4"]
     vb.customize ["modifyvm", :id, "--memory", "8192"]
   end
+
+  config.vm.provision "shell", path: "scripts/mesos.sh"
 end
