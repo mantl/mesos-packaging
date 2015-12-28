@@ -1,7 +1,5 @@
 # common configuration
 MESOS_FIREWALL_RULES=file:///etc/sysconfig/mesos-agent-firewall-rules.json
-MESOS_LOG_DIR=/var/log/mesos
-MESOS_LOGGING_LEVEL=INFO
 MESOS_PORT=5051
 
 # agent configuration
