@@ -2,7 +2,7 @@
 name: mesos
 version: 0.26.0
 license: ASL 2.0
-iteration: 1
+iteration: 2
 vendor: Mesos
 architecture: x86_64
 url: http://mesos.apache.org/
@@ -12,6 +12,7 @@ type: rpm
 depends:
   - cyrus-sasl
   - cyrus-sasl-md5
+  - subversion-libs
 
 resources:
   - url: http://archive.apache.org/dist/mesos/{{.Version}}/mesos-{{.Version}}.tar.gz
