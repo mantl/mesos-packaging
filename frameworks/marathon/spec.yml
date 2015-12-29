@@ -1,6 +1,6 @@
 ---
 name: marathon
-version: 0.10.1
+version: 0.13.0
 license: ASL 2.0
 iteration: 1
 vendor: Mesosphere
@@ -15,7 +15,7 @@ depends:
 resources:
   - url: https://github.com/mesosphere/marathon/archive/v{{.Version}}.tar.gz
     hash-type: sha1
-    hash: 926b081ea70cf8291a7a9eae0c7acb272c1d685e
+    hash: 1d7c0a195d58eb6e4f0f8645708a012be9ae9c2b
   - url: https://dl.bintray.com/sbt/native-packages/sbt/0.13.9/sbt-0.13.9.tgz
     hash-type: sha1
     hash: 879ee72d049f1718a29551f55590aa94972f4c96
