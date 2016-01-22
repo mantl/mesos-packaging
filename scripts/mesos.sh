@@ -17,7 +17,5 @@ EOF
 
 yum update -y systemd
 
-yum groupinstall -y "Development Tools"
-
 sudo yum install -y apache-maven python-devel java-1.8.0-openjdk-devel zlib-devel libcurl-devel openssl-devel cyrus-sasl-devel cyrus-sasl-md5 apr-devel subversion-devel apr-util-devel
 
