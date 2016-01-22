@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 set -e
 
 OUTPUT=${1:-out}
