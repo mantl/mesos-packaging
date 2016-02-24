@@ -18,7 +18,7 @@ depends:
 resources:
   - url: http://archive.apache.org/dist/mesos/{{.Version}}/mesos-{{.Version}}.tar.gz
     hash-type: sha1
-    hash: c621c292b308f1b53e8dfacdb8c32af0a7443805
+    hash: 461d99aef2aab49cdfab09a9d160835894b178c4
 
 targets:
   - src: '{{.BuildRoot}}/out/'
