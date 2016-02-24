@@ -1,6 +1,6 @@
 ---
 name: marathon
-version: 0.14.0-RC2
+version: 0.15.3
 license: ASL 2.0
 iteration: 1
 vendor: Mesosphere
