@@ -5,7 +5,13 @@ echo `pwd`
 
 ## Dependencies
 sudo wget https://raw.githubusercontent.com/kazuho/picojson/v1.3.0/picojson.h -O /usr/local/include/picojson.h
-sudo yum install -y protobuf-devel protobuf-java protobuf-python boost-devel 
+sudo wget http://search.maven.org/remotecontent?filepath=com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar -O /usr/share/java/protobuf.jar
+
+if grep -i "ubuntu" /etc/issue ; then
+    echo "Nothing to do for ubuntu"
+else
+    sudo yum install -y protobuf-devel protobuf-java protobuf-python boost-devel 
+fi
 
 ## create an installation
 INSTALL={{.BuildRoot}}/out
