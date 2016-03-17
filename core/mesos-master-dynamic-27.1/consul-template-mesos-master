@@ -1,2 +1,0 @@
-consul	ALL=(ALL)	NOPASSWD:	/usr/bin/systemctl restart mesos-master.service
-
