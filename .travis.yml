@@ -18,7 +18,7 @@ env:
   # *forever*
   # - PACKAGE=marathon
 
-sudo: false
+sudo: true
 
 addons:
   apt:
