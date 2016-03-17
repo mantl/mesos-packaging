@@ -1,6 +1,6 @@
 ---
 name: mesos
-version: 0.26.0
+version: 0.25.0
 license: ASL 2.0
 iteration: 2
 vendor: Mesos
@@ -17,7 +17,7 @@ depends:
 resources:
   - url: http://archive.apache.org/dist/mesos/{{.Version}}/mesos-{{.Version}}.tar.gz
     hash-type: sha1
-    hash: c621c292b308f1b53e8dfacdb8c32af0a7443805
+    hash: 180da4297676cf0d6b1f5bb1a510c0dc1f30939a
 
 targets:
   - src: '{{.BuildRoot}}/out/'

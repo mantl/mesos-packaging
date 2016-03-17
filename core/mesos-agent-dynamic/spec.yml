@@ -1,6 +1,6 @@
 ---
 name: mesos-agent-dynamic
-version: 0.26.0
+version: 0.25.0
 license: ASL 2.0
 iteration: 2
 vendor: Asteris
@@ -31,7 +31,7 @@ scripts:
     # TODO: figure out what other configs here are going to be important and
     # include them but not much else, since we don't want to re-render *all* the
     # templates, just the ones for mesos-agent
-    sudo -u consul consul-template -config /etc/consul-template/config.d/mesos-agent.hcl -once 
+    sudo -u consul consul-template -config /etc/consul-template/config.d/mesos-agent.hcl -once
     systemctl restart mesos-agent.service
 
     systemctl restart consul-template.service
