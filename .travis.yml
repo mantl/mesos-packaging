@@ -18,7 +18,7 @@ sudo: true
 before_install:
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -qq
-  - sudo apt-get install -qqy g++-4.8 rpm git wget
+  - sudo apt-get install -qqy g++-4.8 autotools-dev autoconf libtool rpm git wget
   - export CXX="g++-4.8" CC="gcc-4.8"
   - sudo apt-get install -qqy build-essential python-dev python-boto libcurl4-nss-dev libsasl2-dev libsasl2-modules maven libapr1-dev libsvn-dev libprotobuf-dev libprotobuf-java python-protobuf libboost-dev
 
