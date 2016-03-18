@@ -10,12 +10,12 @@ sudo wget http://search.maven.org/remotecontent?filepath=com/google/protobuf/pro
 if grep -i "ubuntu" /etc/issue ; then
     echo "Nothing to do for ubuntu"
 else
-    sudo yum install -y protobuf-devel protobuf-java protobuf-python boost-devel 
+    sudo yum install -y protobuf-devel protobuf-java protobuf-python boost-devel
 fi
 
 ## create an installation
 INSTALL={{.BuildRoot}}/out
-mkdir $INSTALL 
+mkdir $INSTALL
 
 # glog
 wget https://github.com/google/glog/archive/v0.3.4.tar.gz
