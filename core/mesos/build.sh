@@ -42,7 +42,7 @@ popd
 
 ## Net-modules
 cd {{.BuildRoot}}
-git clone https://github.com/mesosphere/net-modules.git
+git clone https://github.com/mesosphere/net-modules.git 
 cd net-modules/isolator
 
 # Configure and build
