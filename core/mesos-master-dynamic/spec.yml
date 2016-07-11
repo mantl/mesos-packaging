@@ -1,8 +1,8 @@
 ---
 name: mesos-master-dynamic
-version: 0.27.2
+version: 0.28.2
 license: ASL 2.0
-iteration: 2
+iteration: 1
 vendor: Asteris
 url: http://github.com/asteris-llc/mesos-packaging
 architecture: noarch

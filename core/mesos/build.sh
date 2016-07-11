@@ -5,20 +5,20 @@ echo `pwd`
 
 ## Dependencies
 sudo wget https://raw.githubusercontent.com/kazuho/picojson/v1.3.0/picojson.h -O /usr/local/include/picojson.h
-sudo yum install -y protobuf-devel protobuf-java protobuf-python boost-devel 
+sudo yum install -y protobuf-devel protobuf-java protobuf-python boost-devel
 
 ## create an installation
 INSTALL={{.BuildRoot}}/out
-mkdir $INSTALL 
+mkdir $INSTALL
 
 # glog
 wget https://github.com/google/glog/archive/v0.3.4.tar.gz
 tar -xzvf v0.3.4.tar.gz
 cd glog-0.3.4
 ./configure
-make 
-sudo make install 
-make install DESTDIR="$INSTALL" 
+make
+sudo make install
+make install DESTDIR="$INSTALL"
 cd ..
 
 ## build mesos
@@ -26,13 +26,13 @@ cd mesos-{{.Version}}
 ./bootstrap
 mkdir build
 pushd build
-../configure --prefix=/usr --with-protobuf=/usr --with-boost=/usr --with-glog=${INSTALL}/usr/local/ --enable-optimize 
-make -j {{.CPUs}} 
-make install DESTDIR="$INSTALL" 
+../configure --prefix=/usr --with-protobuf=/usr --with-boost=/usr --with-glog=${INSTALL}/usr/local/ --enable-optimize
+make -j {{.CPUs}}
+make install DESTDIR="$INSTALL"
 popd
 
 pushd $INSTALL
-mkdir -p var/log/mesos var/lib/mesos 
+mkdir -p var/log/mesos var/lib/mesos
 
 # jars
 mkdir -p usr/share/java || echo "dirs for jars"
@@ -42,29 +42,19 @@ popd
 
 ## Net-modules
 cd {{.BuildRoot}}
-git clone https://github.com/mesosphere/net-modules.git 
+git clone https://github.com/mesosphere/net-modules.git
 cd net-modules/isolator
 
-# Configure and build
-pushd ${INSTALL}/usr/
-ln -s lib lib64
-popd
-
 ./bootstrap
-mkdir build 
+mkdir build
 pushd build
-../configure --with-mesos=${INSTALL}/usr --with-protobuf=/usr 
+../configure --with-mesos=${INSTALL}/usr --with-protobuf=/usr
 #make -j {{.CPUs}} || >&2 echo "TRUE"
-make install DESTDIR="$INSTALL" 
-popd
-
-pushd ${INSTALL}/usr/
-rm -f lib64
+make install DESTDIR="$INSTALL"
 popd
 
 pushd $INSTALL
 # symlinks
-mkdir -p usr/local/lib 
+mkdir -p usr/local/lib
 # ensure symlinks are relative so they work as expected in the final env
 ( cd usr/local/lib && cp -s ../../lib/lib*so . )
-
