@@ -1,3 +1,7 @@
+yum clean all
+yum makecache
+yum -y -x 'kernel*' update
+
 yum groupinstall -y 'Development Tools'
 
 # install go and hammer
